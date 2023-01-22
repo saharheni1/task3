@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task3</title>
+    <style>
+        span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+   <input type="text" value =""></input> 
+   <button  type="submit" >Ajouter <span bold id="values"></span> dans la liste</button>
+   <h1>List App</h1>
+   <ul id="list"></ul>
+    <script>
+              let button = document.querySelector("button");
+              let input = document.querySelector("input");
+              let liste = document.querySelector("ul");
+              const log = document.getElementById('values');
+
+              button.addEventListener("click", handleAjout);
+              input.addEventListener('input', handleChange);
+              function handleChange(e){
+               console.log( e.target.value);
+               log.textContent = e.target.value;
+              }
+              function handleAjout(){
+                if (isInputEmpty()) {
+                  alert("Input empty, please type something !");
+                  return;
+                 }
+                let li = document.createElement("li");
+                li.innerHTML=input.value;
+                liste.appendChild(li);
+                input.value="";
+              }
+             
+
+              function isInputEmpty() {
+                 if (input.value == "") {
+                    return true;
+                     }
+                 return false;
+                }
+
+
+    </script>
+</body>
+</html>
